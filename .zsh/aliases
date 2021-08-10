@@ -1,0 +1,39 @@
+#!/bin/sh
+#
+#	A collection of aliases that I use on a regular basis.
+#
+
+# open config file in editor
+alias zconfig="$EDITOR $HOME/.zshrc"
+alias bconfig="$EDITOR $HOME/.bashrc"
+
+# remap 'ls' to colorize then add some convenience aliases
+alias ls="ls -G"
+alias ll="ls -lFh"
+alias la="ls -lFhd .*"
+
+# support dotfiles as an alias
+alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+
+# sso and vscode helper aliases
+alias sso=/Applications/aws-sso-helper.app/Contents/MacOS/aws-sso-helper
+alias code='/Applications/Visual\ Studio\ Code.app/Contents/MacOS/Electron'
+
+# maven related aliases
+alias mci="mvn clean install"
+alias mca="mvn clean install -Pall"
+alias mcr="mvn clean install -DskipTests -Dcheckstyle.skip -Dspotbugs.skip"
+
+# curl alias that includes timing information
+alias tcurl="curl -sw \"
+   namelookup:  %{time_namelookup}s\n\
+      connect:  %{time_connect}s\n\
+   appconnect:  %{time_appconnect}s\n\
+  pretransfer:  %{time_pretransfer}s\n\
+     redirect:  %{time_redirect}s\n\
+starttransfer:  %{time_starttransfer}s\n\
+-------------------------\n\
+        total:  %{time_total}s\n\""
+
+# general navigation
+#alias dev="cd /Users/christopher.allen/Development/src/github.com/ironnetcybersecurity"

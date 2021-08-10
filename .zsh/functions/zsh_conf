@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# a simple function for editing the .zshrc file and reloading it once the editor exits.
+zsh_conf () {
+    local file=$HOME/.zshrc
+    if [ -n "$1" ]; then
+        file=$1
+    fi
+    $EDITOR $file
+    source $HOME/.zshrc
+}

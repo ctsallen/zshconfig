@@ -1,0 +1,10 @@
+#!/bin/sh
+
+#ironkube () {
+	if ! command -v "$ironkube" > /dev/null; then
+		echo "🚨 ironkube not loaded! Loading now..."
+		[[ -s ~/.ironkube/shrc && ! -s ~/.ironkube/bashrc ]] && source ~/.ironkube/shrc
+		
+	fi
+	ironkube "$@"
+#}

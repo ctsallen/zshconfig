@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# a function for displaying the numeric value (e.g. 755) of a file/dir
+permissions()
+{
+	if [ $# -ne 1 ]; then
+		echo "Usage: permissions <file>";
+	else
+		stat -f '%A' $1;
+	fi
+}
