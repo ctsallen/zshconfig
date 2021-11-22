@@ -14,11 +14,18 @@ fi
 
 # load fzf bindings if they are present
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+if [ -f /opt/local/share/fzf/shell/key-bindings.zsh ]; then
+    source /opt/local/share/fzf/shell/key-bindings.zsh
+fi
+
 
 ### Environment variables
 
-# Set the editor to be 'bbedit' and make sure it opens a new instance
-export EDITOR="vim"
+
+export REQUESTS_CA_BUNDLE=$HOME/Documents/allcerts.pem
+
+# Created by `pipx` on 2021-08-02 15:04:44
+export PATH="$PATH:/Users/christopher.allen/.local/bin"
 
 # Add NVM and related completions
 export NVM_DIR="$HOME/.nvm"
@@ -26,8 +33,8 @@ export NVM_DIR="$HOME/.nvm"
 
 ### Update $PATH with custom locations
 
-# for JDK8 support
-export JAVA_HOME=~/Library/Java/JavaVirtualMachines/adopt-openjdk-1.8.0_292/Contents/Home
+# for JDK support
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk17-temurin/Contents/Home
 
 # for GO
 export GOPATH=$HOME/Development

@@ -9,8 +9,7 @@ fi
 # add the custom functions and completions paths to the fpath variable 
 fpath=(
     ~/.zsh/functions
-    ~/.zsh/completions
-    ~/.zsh/completions/zsh-completions/src
+    /opt/local/share/zsh/site-functions
     $fpath
 )
 
@@ -72,7 +71,6 @@ source ~/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-[[ -s ~/.ironkube/shrc && ! -s ~/.ironkube/bashrc ]] && source ~/.ironkube/shrc
 
 # Fix Alt+Backspace to stop on non-word characters
 # (see: https://unix.stackexchange.com/questions/313806/zsh-make-altbackspace-stop-at-non-alphanumeric-characters)
@@ -87,7 +85,12 @@ bindkey '^[^?' backward-kill-dir
 # Allow shift+tab to reverse menu search
 bindkey '^[[Z' reverse-menu-complete
 
-export REQUESTS_CA_BUNDLE=$HOME/Documents/allcerts.pem
+ # Set the editor to be 'bbedit' and make sure it opens a new instance
+export EDITOR="bbedit"
 
-# Created by `pipx` on 2021-08-02 15:04:44
-export PATH="$PATH:/Users/christopher.allen/.local/bin"
+# When setting the EDITOR to 'vim' ZSH will adopt vim bindings on the cmdline
+# forcing it to 'emacs' mode makes the commandline behave "like normal"
+set -o emacs
+
+# Share zsh history across all terminal windows
+setopt share_history
