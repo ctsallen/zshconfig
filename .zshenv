@@ -1,4 +1,5 @@
 #!/bin/zsh
+
 ### Load OS specific integrations
 if [[ $OSTYPE == darwin* ]]; then
 	# load iterm2 shell integrations if they have been installed
@@ -18,27 +19,23 @@ if [ -f /opt/local/share/fzf/shell/key-bindings.zsh ]; then
     source /opt/local/share/fzf/shell/key-bindings.zsh
 fi
 
+# Set the editor
+export EDITOR="vim"
+# Ensure that if the editor is vim, we stick with emacs mode for zsh
+setopt emacs
 
-### Environment variables
+# Share history between shell instances
+setopt share_history
 
-
-export REQUESTS_CA_BUNDLE=$HOME/Documents/allcerts.pem
-
-# Created by `pipx` on 2021-08-02 15:04:44
-export PATH="$PATH:/Users/christopher.allen/.local/bin"
-
-# Add NVM and related completions
-export NVM_DIR="$HOME/.nvm"
-
-
-### Update $PATH with custom locations
-
-# for JDK support
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk17-temurin/Contents/Home
+# Make JAVA_HOME point to the default JDK
+export JAVA_HOME="$(/usr/libexec/java_home)" 
 
 # for GO
 export GOPATH=$HOME/Development
 export PATH=$PATH:$GOPATH/bin
+
+# Add nvm completions to the path
+export NVM_DIR="$HOME/.nvm"
 
 export TIMEFMT="
 ________________________________________________________
