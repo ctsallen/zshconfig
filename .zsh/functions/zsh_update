@@ -1,9 +1,13 @@
 #!/bin/sh
 
 # a simple function to update plugins
-for file in $(ls -d $HOME/.zsh/plugins/*); do
-    echo $file
-    pushd $file >/dev/null 2>&1
-    git pull 2>/dev/null
-    popd >/dev/null 2>&1
-done
+#for file in $(ls -d $HOME/.zsh/plugins/*); do
+#    echo $file
+#    pushd $file >/dev/null 2>&1
+#    git pull 2>/dev/null
+#    popd >/dev/null 2>&1
+#done
+
+dotfiles submodule update
+source ~/.zshrc
+

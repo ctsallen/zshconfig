@@ -13,7 +13,7 @@ alias ll="ls -lFh"
 alias la="ls -lFhd .*"
 
 # support dotfiles as an alias
-alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+#alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 # sso and vscode helper aliases
 alias sso=/Applications/aws-sso-helper.app/Contents/MacOS/aws-sso-helper
