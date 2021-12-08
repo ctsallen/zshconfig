@@ -1,0 +1,9 @@
+[submodule ".zsh/plugins/zsh-autosuggestions"]
+	path = .zsh/plugins/zsh-autosuggestions
+	url = git@github.com:zsh-users/zsh-autosuggestions.git
+[submodule ".zsh/plugins/powerlevel10k"]
+	path = .zsh/plugins/powerlevel10k
+	url = git@github.com:romkatv/powerlevel10k.git
+[submodule ".zsh/plugins/enhancd"]
+	path = .zsh/plugins/enhancd
+	url = git@github.com:b4b4r07/enhancd.git
