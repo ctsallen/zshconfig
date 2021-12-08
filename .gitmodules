@@ -7,3 +7,6 @@
 [submodule ".zsh/plugins/enhancd"]
 	path = .zsh/plugins/enhancd
 	url = git@github.com:b4b4r07/enhancd.git
+[submodule ".zsh/plugins/zsh-completions"]
+	path = .zsh/plugins/zsh-completions
+	url = git@github.com:zsh-users/zsh-completions.git

@@ -9,6 +9,7 @@ fi
 # add the custom functions and completions paths to the fpath variable 
 fpath=(
     ~/.zsh/functions
+    ~/.zsh/plugins/zsh-completions
     /opt/local/share/zsh/site-functions
     $fpath
 )
@@ -85,12 +86,5 @@ bindkey '^[^?' backward-kill-dir
 # Allow shift+tab to reverse menu search
 bindkey '^[[Z' reverse-menu-complete
 
- # Set the editor to be 'bbedit' and make sure it opens a new instance
-export EDITOR="bbedit"
-
-# When setting the EDITOR to 'vim' ZSH will adopt vim bindings on the cmdline
-# forcing it to 'emacs' mode makes the commandline behave "like normal"
-set -o emacs
-
-# Share zsh history across all terminal windows
-setopt share_history
+# Allow fzf-cd-widget to behave correctly with ALT-C
+bindkey "ç" fzf-cd-widget

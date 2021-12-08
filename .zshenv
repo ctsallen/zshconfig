@@ -19,9 +19,14 @@ if [ -f /opt/local/share/fzf/shell/key-bindings.zsh ]; then
     source /opt/local/share/fzf/shell/key-bindings.zsh
 fi
 
+# Share zsh history across all terminal windows
+setopt share_history
+
 # Set the editor
 export EDITOR="vim"
-# Ensure that if the editor is vim, we stick with emacs mode for zsh
+
+# When setting the EDITOR to 'vim' ZSH will adopt vim bindings on the cmdline
+# this forces it to 'emacs' mode makes the commandline behave "like normal"
 setopt emacs
 
 # Share history between shell instances
