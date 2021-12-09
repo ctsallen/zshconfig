@@ -8,8 +8,8 @@ fi
 
 # add the custom functions and completions paths to the fpath variable 
 fpath=(
-    ~/.zsh/functions
-    ~/.zsh/plugins/zsh-completions
+    $HOME/.zsh/functions
+    $HOME/.zsh/plugins/zsh-completions/src
     /opt/local/share/zsh/site-functions
     $fpath
 )
