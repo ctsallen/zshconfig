@@ -9,6 +9,7 @@ fi
 # add the custom functions and completions paths to the fpath variable 
 fpath=(
     $HOME/.zsh/functions
+    $HOME/.zsh/completions
     $HOME/.zsh/plugins/zsh-completions/src
     /opt/local/share/zsh/site-functions
     $fpath
