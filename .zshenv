@@ -19,8 +19,17 @@ if [ -f /opt/local/share/fzf/shell/key-bindings.zsh ]; then
     source /opt/local/share/fzf/shell/key-bindings.zsh
 fi
 
+# Effectively set the history size to unlimited
+export HISTFILESIZE=1000000000
+export HISTSIZE=1000000000
+
+# Don't write duplicate commands to the history file
+setopt HIST_IGNORE_ALL_DUPS
 # Share zsh history across all terminal windows
 setopt share_history
+
+export HISTTIMEFORMAT="[%F %T] "
+setopt EXTENDED_HISTORY
 
 # Set the editor
 export EDITOR="vim"
