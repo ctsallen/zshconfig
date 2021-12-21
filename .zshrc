@@ -72,7 +72,9 @@ source ~/.zsh/plugins/powerlevel10k/powerlevel10k.zsh-theme
 source ~/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # kubernetes auto completion
-source <(kubectl completion zsh)
+if [ command -v kubectl &>/dev/null ]; then
+    source <(kubectl completion zsh)
+fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -92,3 +94,4 @@ bindkey '^[[Z' reverse-menu-complete
 
 # Allow fzf-cd-widget to behave correctly with ALT-C
 bindkey "ç" fzf-cd-widget
+
