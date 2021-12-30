@@ -10,3 +10,6 @@
 [submodule ".zsh/plugins/zsh-completions"]
 	path = .zsh/plugins/zsh-completions
 	url = git@github.com:zsh-users/zsh-completions.git
+[submodule ".zsh/plugins/zsh-abbr"]
+	path = .zsh/plugins/zsh-abbr
+	url = git@github.com:olets/zsh-abbr.git
