@@ -15,9 +15,6 @@ fpath=(
     $fpath
 )
 
-# flag all functions for autoloading so that they get loaded as needed
-autoload -Uz ~/.zsh/functions/**/*
-
 # autoload compinit for completions and only reload the cache once a day 
 autoload -Uz compinit
 if [ -f ${ZDOTDIR:-$HOME}/.zcompdump ]; then
@@ -29,6 +26,9 @@ if [ -f ${ZDOTDIR:-$HOME}/.zcompdump ]; then
 else
     compinit -C
 fi
+
+# flag all functions for autoloading so that they get loaded as needed
+autoload -Uz $HOME/.zsh/functions/**/*
 
 # source aliases that I use reguarly 
 source ~/.zsh/aliases
@@ -72,11 +72,6 @@ source ~/.zsh/plugins/powerlevel10k/powerlevel10k.zsh-theme
 source ~/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/plugins/zsh-abbr/zsh-abbr.zsh
 
-# kubernetes auto completion
-if [ command -v kubectl &>/dev/null ]; then
-    source <(kubectl completion zsh)
-fi
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
@@ -95,4 +90,3 @@ bindkey '^[[Z' reverse-menu-complete
 
 # Allow fzf-cd-widget to behave correctly with ALT-C
 bindkey "ç" fzf-cd-widget
-
