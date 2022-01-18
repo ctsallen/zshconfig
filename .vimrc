@@ -1,6 +1,8 @@
 " Setup some basic options for VIM
 syntax on
 set ruler
+set number
+set mouse+=a " prevent mouse from copying numbers
 set showmatch
 set backspace=eol,start,indent
 set whichwrap+=<,>,h,l,[,]
@@ -25,11 +27,11 @@ set incsearch
 set list listchars=tab:»·,trail:·,nbsp:·
 
 " Make it obvious where 100 characters is
-set textwidth=120
-set colorcolumn=+1
+set textwidth=100
+" set colorcolumn=+1
 
 set showcmd       " display incomplete commands
-set laststatus=2  " Always display the status line
+"set laststatus=2  " Always display the status line
 set backspace=2   " Backspace deletes like most programs in insert mode
 
 " Configure netrw - vims built-in file manager
@@ -42,6 +44,7 @@ let g:netrw_banner = 0
 let g:netrw_localcopydircmd = 'cp -r'
 " Hide dotfiles on load.
 let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
+let g:netrw_liststyle = 3
 " Highlight marked files in the same way search matches are.
 hi! link netrwMarkFile Search
 
@@ -67,6 +70,8 @@ function! NetrwMapping()
     nmap <buffer> L <CR>:Lexplore<CR>
 endfunction
 
+" Originally inspired by https://stackoverflow.com/questions/5006950/setting-netrw-like-nerdtree
+" and https://vonheikemen.github.io/devlog/tools/using-netrw-vim-builtin-file-explorer/
 let g:NetrwIsOpen=0
 function! ToggleVExplorer()
     if g:NetrwIsOpen
@@ -80,7 +85,7 @@ function! ToggleVExplorer()
     endif
 endfunction
 
-map <silent> <C-d><C-d> :call ToggleVExplorer()<CR>
+map <silent> <F2> :call ToggleVExplorer()<CR>
 
 " configure plugins
 autocmd FileType yml,yaml setlocal ts=2 sts=2 sw=2 expandtab
@@ -107,3 +112,19 @@ nnoremap <silent> <Leader>h/ :History/<CR>
 
 " Enables certain plugins
 filetype plugin on
+
+function! NetrwMouseOn()
+     set mouse=n
+endfunction
+
+function! NetrwMouseOff()
+     set mouse=
+endfunction
+
+
+au FileType netrw :call NetrwMouseOn()
+au FileType netrw au BufEnter <buffer> :call NetrwMouseOn()
+au FileType netrw au BufLeave <buffer> :call NetrwMouseOff()
+
+" Map every left click to enter button
+au FileType netrw nmap <buffer> <LeftMouse> <LeftMouse> <CR>
