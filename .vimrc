@@ -26,6 +26,12 @@ set incsearch
 " Display extra whitespace
 set list listchars=tab:»·,trail:·,nbsp:·
 
+" Persistent undo even after you close a file and re-open it
+set undofile
+
+" Use list mode and customized listchars
+set list listchars=tab:▸\ ,extends:❯,precedes:❮,nbsp:␣
+
 " Make it obvious where 100 characters is
 set textwidth=100
 " set colorcolumn=+1
@@ -33,6 +39,12 @@ set textwidth=100
 set showcmd       " display incomplete commands
 "set laststatus=2  " Always display the status line
 set backspace=2   " Backspace deletes like most programs in insert mode
+
+" Use the system clipboard for all yanks, deletes, etc.
+set clipboard^=unnamed,unnamedplus
+
+" Set matching pairs of characters and highlight matching brackets
+set matchpairs+=<:>,「:」,『:』,【:】,“:”,‘:’,《:》
 
 " Configure netrw - vims built-in file manager
 
@@ -85,7 +97,7 @@ function! ToggleVExplorer()
     endif
 endfunction
 
-map <silent> <F2> :call ToggleVExplorer()<CR>
+map <silent> <C-d> :call ToggleVExplorer()<CR>
 
 " configure plugins
 autocmd FileType yml,yaml setlocal ts=2 sts=2 sw=2 expandtab
