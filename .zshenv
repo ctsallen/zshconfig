@@ -45,7 +45,7 @@ setopt share_history
 export JAVA_HOME="$(/usr/libexec/java_home)" 
 
 # for GO
-export GOPATH=$HOME/Development
+export GOPATH=$HOME/Development/go
 export PATH=$PATH:$GOPATH/bin
 
 # Add nvm completions to the path

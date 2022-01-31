@@ -8,11 +8,16 @@ set backspace=eol,start,indent
 set whichwrap+=<,>,h,l,[,]
 set linebreak
 
+" Handle vim swapfiles but putting them all in one location
+set directory^=$HOME/.vim/swap//
+
+" Handle persistent undo file
+set undodir^=$HOME/.vim/undo//
+
 " Handle the conversion between tabs and spaces and handle tab features
 set smartindent
 set tabstop=4
 set softtabstop=4
-set shiftwidth=4
 set expandtab
 set autoindent
 
@@ -22,6 +27,23 @@ set smartcase
 set hlsearch
 set nowrapscan
 set incsearch
+
+" Handle copy, cut and paste
+vmap <C-c> "+y
+vmap <C-x> "+c
+vmap <C-v> c<ESC>"+p
+imap <C-v> <ESC>"+pa
+
+" Handle moving through split windows
+nmap <leader><Up> :wincmd k<CR>
+nmap <leader><Down> :wincmd j<CR>
+nmap <leader><Left> :wincmd h<CR>
+nmap <leader><Right> :wincmd l<CR>
+
+" indent/unindent with tab/shift-tab
+nmap <Tab> >>
+imap <S-Tab> <Esc><<i
+nmap <S-tab> <<
 
 " Display extra whitespace
 set list listchars=tab:»·,trail:·,nbsp:·
@@ -46,7 +68,22 @@ set clipboard^=unnamed,unnamedplus
 " Set matching pairs of characters and highlight matching brackets
 set matchpairs+=<:>,「:」,『:』,【:】,“:”,‘:’,《:》
 
+" disable autoindent when pasting text
+" source: https://coderwall.com/p/if9mda/automatically-set-paste-mode-in-vim-when-pasting-in-insert-mode
+let &t_SI .= "\<Esc>[?2004h"
+let &t_EI .= "\<Esc>[?2004l"
+
+inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+
+function! XTermPasteBegin()
+  set pastetoggle=<Esc>[201~
+  set paste
+  return ""
+endfunction
+
+"
 " Configure netrw - vims built-in file manager
+"
 
 " Change the size of the Netrw window when it creates a split. I think 30% is fine.
 let g:netrw_winsize = 25
@@ -140,3 +177,6 @@ au FileType netrw au BufLeave <buffer> :call NetrwMouseOff()
 
 " Map every left click to enter button
 au FileType netrw nmap <buffer> <LeftMouse> <LeftMouse> <CR>
+
+" Don't let MacVim.app override chosen colorscheme
+let macvim_skip_colorscheme=1
