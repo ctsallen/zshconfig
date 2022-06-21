@@ -9,10 +9,13 @@ set whichwrap+=<,>,h,l,[,]
 set linebreak
 
 " Handle vim swapfiles but putting them all in one location
-set directory^=$HOME/.vim/swap//
+set directory^=$HOME/.vim/tmp//
 
 " Handle persistent undo file
-set undodir^=$HOME/.vim/undo//
+set undodir=$HOME/.vim/tmp//
+
+" Handle backup files
+set backupdir=$HOME/.vim/tmp//
 
 " Handle the conversion between tabs and spaces and handle tab features
 set smartindent

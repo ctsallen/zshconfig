@@ -4,6 +4,7 @@
 if [[ $OSTYPE == darwin* ]]; then
 	# load iterm2 shell integrations if they have been installed
 	if [ -e $HOME/.iterm2_shell_integrations.zsh ]; then
+        export ITERM_ENABLE_SHELL_INTEGRATION_WITH_TMUX=YES
 		source $HOME/.iterm2_shell_integrations.zsh
 	fi
 	
@@ -45,7 +46,7 @@ setopt share_history
 export JAVA_HOME="$(/usr/libexec/java_home)" 
 
 # for GO
-export GOPATH=$HOME/Development/go
+export GOPATH=$HOME/Developer/go
 export PATH=$PATH:$GOPATH/bin
 
 # Add nvm completions to the path

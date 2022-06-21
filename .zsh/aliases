@@ -32,5 +32,8 @@ starttransfer:  %{time_starttransfer}s\n\
 -------------------------\n\
         total:  %{time_total}s\n\""
 
+alias kwhoami="kctx"
+alias awswhoami="aws sts get-caller-identity"
+
 # general navigation
 #alias dev="cd /Users/christopher.allen/Development/src/github.com/ironnetcybersecurity"

@@ -95,3 +95,5 @@ bindkey "ç" fzf-cd-widget
 if type kubectl > /dev/null; then
     source <(kubectl completion zsh)
 fi
+
+[[ -s ~/.ironkube/shrc && ! -s ~/.ironkube/bashrc ]] && source ~/.ironkube/shrc
