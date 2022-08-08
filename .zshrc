@@ -70,6 +70,7 @@ zstyle ':completion:*:warnings' format $'\e[01;31m -- No Matches Found --\e[0m'
 source ~/.zsh/plugins/enhancd/init.sh
 source ~/.zsh/plugins/powerlevel10k/powerlevel10k.zsh-theme
 source ~/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /Users/callen/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 #source ~/.zsh/plugins/zsh-abbr/zsh-abbr.zsh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
